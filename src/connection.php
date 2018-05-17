@@ -4,6 +4,6 @@
 	
 	if($_SERVER["REQUEST_METHOD"] == "GET"){
 		$key = $_GET["key"];
-		$_SESSION["client"]
+		$_SESSION["client"]->
 	}
 ?>

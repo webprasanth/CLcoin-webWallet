@@ -8,7 +8,7 @@
 	}
 	//For each client we create an instance to connect to the node
 	if(!isset($_SESSION["client"]) || $_SESSION["client"] == NULL){
-		$_SESSION["client"] = new CLcoin("myusername", "mypass");
+		$_SESSION["client"] = new CLcoin("user", "pass");
 	}
 ?>
 <html>
@@ -19,7 +19,9 @@
 	</head>
 	
 	<body>
-		<h1 id="title">CLcoin web wallet</h1>
+		<div id="title">
+			<h1>CLcoin web wallet</h1>
+		</div>
 		<?php if(!isset($_SESSION["address"])){//If nobody's connected ?>
 			<div id="connection">
 				<form method="GET" action="src/connection.php">
@@ -31,7 +33,7 @@
 			<div id="createAccount">
 				<form method="GET" action="src/generate.php">
 					<h3>Création d'un compte</h3>
-					<input name ="buttonGen" type="submit" id="genKeys" value="Générer les clefs"/>
+					<input name ="buttonGen" type="submit" id="genKeys" value="Générer une paire de clefs"/>
 				</form>
 			</div>
 		<?php }else{ //If connected

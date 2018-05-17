@@ -7,6 +7,7 @@ html, body{
 	background: #f6f6f6;
 	font-family: 'Lato';
 	text-align: center;
+	font-size: 45px;
 }
 #coinName{
 	font-style: italic;
@@ -23,15 +24,37 @@ html, body{
 
 #connection, #createAccount{
 	width: 80%;
+	height: 20%;
 	margin-top: 12%;
 	margin-right: auto;
 	margin-left: auto;
 }
-
-#genKeys{
-	width: 78%;
+input{
+	width: 50%;
+	height: 65px;
+	tex-align: center;
+	font-size: 30px;
 }
-
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	font-size: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+::-moz-placeholder { /* Firefox 19+ */
+	font-size: 30px;
+	margin-left: auto;
+        margin-right: auto;
+}
+:-ms-input-placeholder { /* IE 10+ */
+	font-size: 30px;
+	margin-left: auto;
+        margin-right: auto;
+}
+:-moz-placeholder { /* Firefox 18- */
+	font-size: 30px;
+	margin-left: auto;
+        margin-right: auto;	
+}
 
 /* ----- Wallet Part ------ */
 #accountInfos, #balance, #send, #deco, #sendingError{
@@ -69,12 +92,10 @@ html, body{
 	margin-top: 10px;
 }
 #send input{
-	height: 15px;
 	width: 80%;
 }
 #send input[type="submit"]{
 	margin-top: 20px;
-	height: inherit;
 }
 
 /* The error bloc */
