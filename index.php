@@ -8,7 +8,7 @@
 	}
 	//For each client we create an instance to connect to the node
 	if(!isset($_SESSION["client"]) || $_SESSION["client"] == NULL){
-		$_SESSION["client"] = new CLcoin("darosior", "8JjKWJAMroj8TgUcdcaPNYtPDakcjgfzEWRHcamCGkmJ");
+		$_SESSION["client"] = new CLcoin("myusername", "mypass");
 	}
 ?>
 <html>
