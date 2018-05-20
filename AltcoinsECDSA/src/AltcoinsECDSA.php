@@ -96,6 +96,26 @@ class AltcoinsECDSA
     }
 
     /***
+     * Converts a decimal number to a hexadecimal number
+     * taken from https://stackoverflow.com/questions/39198398/php-convert-decimal-to-hexadecimal
+     *
+     * @param string $number
+     * @return string $number as an hexadecimal number
+     */
+    public static function dec2hex($number)
+    {
+        $hexvalues = array('0','1','2','3','4','5','6','7',
+                   '8','9','A','B','C','D','E','F');
+        $hexval = '';
+        while($number != '0')
+	{
+		$hexval = $hexvalues[bcmod($number,'16')].$hexval;
+        	$number = bcdiv($number,'16',0);
+	}	
+	return $hexval;
+    }
+	
+    /***
      * Set the network prefix, '00' = main network, '6f' = test network.
      *
      * @param string $prefix (hexa)

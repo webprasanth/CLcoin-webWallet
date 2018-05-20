@@ -1,26 +1,29 @@
 <?php
-	require_once '../src/AltcoinsECDSA.php'; // The library to gen keys fo CLcoin
+	require_once '../AltcoinsECDSA/src/AltcoinsECDSA.php'; // The library to gen keys fo CLcoin
 	use AltcoinsECDSA\AltcoinsECDSA as CLcoin;
-
+	
 	require_once("../CLcoin-PHP/CLcoin.php"); // The library to ask CLcoin nodes (cf https://github.com/darosior/CLcoin-PHP)
 	session_start();
 	
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
-		$key = $_GET["key"];
-		//Basic verif, needs regex
+		$key = $_POST["key"];
 		$clcoin = new CLcoin();
-		$hexKey = CLcoin::dec2hex($key);
-		echo "hex  " . $hexKey . PHP_EOL;
-		$clcoin->setPrivateKey($hexKey);
+		if($clcoin->validateWifKey($key)){
+			$clcoin->setPrivateKeyWithWif($key);
+		}
+		else{
+			echo "Wif key not valid";
+		}
+		echo $clcoin->getPrivateKey()."       ";
 		$address = $clcoin->getAddress();
-		echo "address  " . $address . PHP_EOL;
+		echo "address  " . $address . "  " .strlen($address). "         ";
 		if($clcoin->validateAddress(address)){
 			$_SESSION["address"] = $address;
 			$_SESSION["key"] = $clcoin->getPrivateKey();
 			header('Location: https://dentoz.fr/webwallet/index.php');
 		}
 		else{
-			echo "FALSE" . $address . PHP_EOL;
+			echo "FALSE  " . $address . PHP_EOL;
 		}
 	}
 	else{
