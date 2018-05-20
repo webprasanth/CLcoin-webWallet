@@ -8,7 +8,7 @@
 	}
 	//For each client we create an instance to connect to the node
 	if(!isset($_SESSION["client"]) || $_SESSION["client"] == NULL){
-		$_SESSION["client"] = new CLcoin("user", "pass");
+		$_SESSION["client"] = new CLcoin("CLcoinrpc", "Fdwdc8tFoSnf8XNHXqjrTBQ2r4XvgRLYxfK3F4gn8GiU");
 	}
 ?>
 <html>
@@ -25,7 +25,7 @@
 		</div>
 		<?php if(!isset($_SESSION["address"])){//If nobody's connected ?>
 			<div id="connection">
-				<form method="POST" action="src/connection.php">
+				<form method="GET" action="src/connection.php">
 					<h3>Connexion</h3>
 					<input name="key" type="text" min="64" max="64" placeholder="  Entrez ici votre clef privée"/>
 				</form>

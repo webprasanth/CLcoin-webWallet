@@ -1,0 +1,121 @@
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+/* ------ Global ------ */
+html, body{
+	width: 100%;
+	height: 100%;
+	background: #f6f6f6;
+	font-family: 'Lato';
+	text-align: center;
+	font-size: 45px;
+}
+#coinName{
+	font-style: italic;
+}
+
+
+/* ----- Connection part ------ */
+#title{
+	width: 80%;
+	margin-top: 5%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#connection, #createAccount{
+	width: 80%;
+	height: 20%;
+	margin-top: 12%;
+	margin-right: auto;
+	margin-left: auto;
+}
+input{
+	width: 50%;
+	height: 65px;
+	tex-align: center;
+	font-size: 30px;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	font-size: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+::-moz-placeholder { /* Firefox 19+ */
+	font-size: 30px;
+	margin-left: auto;
+        margin-right: auto;
+}
+:-ms-input-placeholder { /* IE 10+ */
+	font-size: 30px;
+	margin-left: auto;
+        margin-right: auto;
+}
+:-moz-placeholder { /* Firefox 18- */
+	font-size: 30px;
+	margin-left: auto;
+        margin-right: auto;	
+}
+
+/* ----- Wallet Part ------ */
+#accountInfos, #balance, #send, #deco, #sendingError{
+	margin-top: 7%;
+	margin-right: auto;
+	margin-left: auto;
+}
+#balance, #send, #deco, #sendingError{
+	width: 80%;
+}
+
+#accountInfos{
+	font-size: 95%;
+	margin-bottom: 10%;
+}
+
+/* The balance */
+#balance{
+	font-size: 105%;
+	margin-bottom: 7%;
+}
+#amount{
+	font-weight: bold;
+}
+
+/* The sending form */
+#send{
+	margin-top: 1%;
+	padding: 5px;
+}
+#send h3{
+	margin-top: 5px;
+}
+#send .formPart{
+	margin-top: 10px;
+}
+#send input{
+	width: 80%;
+}
+#send input[type="submit"]{
+	margin-top: 20px;
+}
+
+/* The error bloc */
+#sendingError{
+	background-color: #FFD2D2;
+	color: #D8000C;
+	padding: 5px;
+	border: 1px solid #FFD2D2;
+	border-radius: 2%;
+}
+#sendingError h5{
+	margin-top: 3px;
+	margin-bottom: 1px;
+}
+
+/* The deconnection button */
+#deco{
+	margin-top: 120px;
+}
+#deco input{
+	width: 50%;
+}
+
