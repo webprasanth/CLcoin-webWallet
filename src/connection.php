@@ -6,27 +6,20 @@
 	session_start();
 	
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
+		//Get the key and the instance of the object to manipulate it
 		$key = $_POST["key"];
 		$clcoin = new CLcoin();
+		//If the key is a valid one, we set it and get the address
 		if($clcoin->validateWifKey($key)){
 			$clcoin->setPrivateKeyWithWif($key);
-		}
-		else{
-			echo "Wif key not valid";
-		}
-		echo $clcoin->getPrivateKey()."       ";
-		$address = $clcoin->getAddress();
-		echo "address  " . $address . "  " .strlen($address). "         ";
-		if($clcoin->validateAddress(address)){
-			$_SESSION["address"] = $address;
-			$_SESSION["key"] = $clcoin->getPrivateKey();
-			header('Location: https://dentoz.fr/webwallet/index.php');
-		}
-		else{
-			echo "FALSE  " . $address . PHP_EOL;
+			$address = $clcoin->getAddress();
+			//And then set up the vars with the appropriate values
+			if($clcoin->validateAddress($address)){
+				$_SESSION["address"] = $address;
+				$_SESSION["key"] = $clcoin->getWif();
+			}
 		}
 	}
-	else{
-		echo "GET";
-	}
+	//We redirect the user in any case
+	header('Location: https://dentoz.fr/webwallet/index.php');
 ?>
